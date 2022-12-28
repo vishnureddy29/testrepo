@@ -1,0 +1,227 @@
+<template>
+    <lightning-card title="Fill the 10th Details">
+        
+        <lightning-record-edit-form>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                    <lightning-input label='Institute_Name' name='10th Institute_Name' type="text" onchange={onChange} required></lightning-input>
+                </div>
+                <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                    <lightning-input label='Board Name' name='10th Board Name' type="text" onchange={onChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                    <lightning-input label='10th Percentage' name='10th Percentage' type="Percentage" max-length="5"  placeholder='0.00' onchange={onChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                    <lightning-combobox
+                                name="Year Of Pass"
+                                label="Year of Pass"
+
+                                placeholder="Select Year Of Pass"
+                        options={year}
+                        onchange={Year10thChange} ></lightning-combobox>
+                </div>
+                <!-- <div class="slds-p-left_medium">
+                <strong><lightning-input type="file" label="upload 10th MarksCard" onchange={openfileUpload}>
+                    <p>{markscard10thName}</p>
+                </lightning-input></strong></div> -->
+            </div>
+        </lightning-record-edit-form>
+    </lightning-card>
+
+    <template if:true={btn1}>
+        <lightning-button icon-name="utility:new" onclick={add1}></lightning-button>
+    </template>
+ 
+        <lightning-record-edit-form>
+            <template if:true={form1}>
+                <lightning-card title="Fill 12th/Deploma Details">                  
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-input label='Institute_Name' name='Institute_Name' type="text" onchange={onChange} required></lightning-input>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-input label='Board Name' name='Board Name' type="text" onchange={onChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-input label='Percentage' name='Percentage' type="Percentage" max-length="5"  placeholder='0.00' onchange={onChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-combobox
+                                name="Year Of Pass"
+                                label="Year of Pass"
+                                
+                                placeholder="Select Year Of Pass"
+                                options={year}
+                                onchange={Year12thChange} ></lightning-combobox>
+                        </div>
+                        <!-- <div class="slds-p-left_medium">
+                        <strong><lightning-input type="file" label="upload 12th/Deploma MarksCard" onchange={openfileUpload1}>
+                            <p>{markscard12thName}</p>
+                        </lightning-input></strong></div> -->
+                    </div>
+                </lightning-card>
+                <template if:true={btn2}>
+                    <lightning-button icon-name="utility:new" onclick={add2}></lightning-button>
+                </template>
+
+            </template>  
+        </lightning-record-edit-form>
+
+       <lightning-record-edit-form> 
+        <template if:true={form2}>
+            <lightning-card title="Graduation Details">                   
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-combobox
+                            name="Qualification"
+                            label="Qualification"
+                            value={value}
+                            placeholder="Select Qualification"
+                            options={options}
+                            onchange={handleChange} ></lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-input label='Institute_Name' name='UG Institute_Name' type="text" onchange={onChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-input label='University Name' name='gUniversity Name' type="text" onchange={onChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-input label='Specification' name='gSpecification' type="text" onchange={onChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-input label='Percentage' name='xPercentage' type="Percentage" max-length="5"  placeholder='0.00' onchange={onChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-combobox
+                            name="Year Of Pass"
+                            label="Year of Pass"                               
+                            placeholder="Select Year Of Pass"
+                            options={year}
+                            onchange={YearUGChange} ></lightning-combobox>
+                    </div>
+                    <!-- <div class="slds-p-left_medium">
+                    <strong><lightning-input type="file" label="Upload UG Course Complition Card" onchange={openfileUpload2}><p>{UGfileName}</p>
+                    </lightning-input></strong></div> -->
+                </div>
+            </lightning-card>
+            <template if:true={btn3}>
+                <lightning-button icon-name="utility:new" onclick={add3}></lightning-button>
+            </template>
+        </template>     
+</lightning-record-edit-form>      
+                
+        <lightning-record-edit-form>          
+            <template if:true={form3}>
+                <lightning-card title="Post graduation Details">
+                    
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-combobox
+                                name="Qualification"
+                                label="Qualification"
+                                
+                                placeholder="Select Qualification"
+                                options={Pgoptions}
+                                onchange={Pgchange}></lightning-combobox>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-input label='Institute_Name' name='PG Institute_Name' type="text" onchange={onChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-input label='University Name' name='University Name' type="text" onchange={onChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-input label='Specification' name='Specification' type="text" onchange={onChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-input label='Percentage' name='pPercentage' type="Percentage" max-length="5"  placeholder='0.00' onchange={onChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                            <lightning-combobox
+                                name="Year Of Pass"
+                                label="Year of Pass"
+                                
+                                placeholder="Select Year Of Pass"
+                                options={year}
+                                onchange={YearPGChange} ></lightning-combobox>
+                        </div>
+                        <!-- <div class="slds-p-left_medium">
+                        <strong><lightning-input type="file" label="Upload PG Course Complition Card" onchange={openfileUpload3}><p>{PGfileName}</p>
+                        </lightning-input></strong></div> -->
+                    </div>
+                </lightning-card>
+            </template>
+        </lightning-record-edit-form>
+
+        <template if:true={DetailsSaved}>
+            <lightning-card title="Documents">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-file-upload
+                        label="Upload 10Th Markscard"
+                        name="UploadFile"
+                        record-id={relatedRecordId}
+                        onuploadfinished={handleUpload10th}
+                        multiple
+                        file-field-name="Guest_Record_fileupload__c"
+                        file-field-value={relatedRecordId}>
+                        </lightning-file-upload>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-file-upload
+                            label="Upload 12th/diploma Markscard"
+                            name="UploadFile"
+                            record-id={relatedRecordId}
+                            onuploadfinished={handleUpload12thORdiploma}
+                            multiple
+                            file-field-name="Guest_Record_fileupload__c"
+                            file-field-value={relatedRecordId}>
+                        </lightning-file-upload>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-file-upload
+                            label="Upload UG Markscards"
+                            name="UploadFile"
+                            record-id={relatedRecordId}
+                            onuploadfinished={handleUploadUG}
+                            multiple
+                            file-field-name="Guest_Record_fileupload__c"
+                            file-field-value={relatedRecordId}>
+                        </lightning-file-upload>
+                    </div>
+                    <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+                        <lightning-file-upload
+                            label="Upload PG Marks card"
+                            name="UploadFile"
+                            record-id={relatedRecordId}
+                            onuploadfinished={handleUploadPG}
+                            multiple
+                            file-field-name="Guest_Record_fileupload__c"
+                            file-field-value={relatedRecordId}>
+                        </lightning-file-upload>
+                    </div>
+                </div>
+              
+            </lightning-card>
+        </template>
+        
+                <lightning-layout>
+                    <lightning-layout-item flexibility="grow">
+                        <lightning-button label="Previous" icon-name="utility:chevronleft" variant="brand" onclick={navigateToPrevPage}></lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="grow">
+                        <lightning-button
+                        variant="brand"
+                        label="Save"
+                        class="slds-var-m-around_large"
+                        
+                        onclick={Save}
+                        icon-position="centre"></lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <lightning-button label="Next" variant="brand" icon-name="utility:chevronright" value = {} icon-position="right" onclick={navigateToNextPage}></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+</template>

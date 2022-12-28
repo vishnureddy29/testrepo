@@ -1,0 +1,80 @@
+<template>
+    <lightning-layout for:each={experienceRecList} for:item="form" key={keyIndex} for:index="index">
+        <lightning-card title="Experience Details" > 
+                <div class="slds-grid slds-wrap" >
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-around_small" name="Company" label= "Company" type="text" required onchange={changeHandler} access-key={index} id={index} ></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-around_small" name="Designation" label="Designation" type="text" onchange={changeHandler} access-key={index} id={index}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-around_small" name="Employee ID" label="Employee ID" type="text" onchange={changeHandler} access-key={index} id={index}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-around_small" name="Industry Type" label="Industry Type" type="text" onchange={changeHandler} access-key={index} id={index}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-around_small" name="From" label="From" type="Date" onchange={changeHandler} access-key={index} ></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-around_small" name="To" label="To" type="Date" onchange={changeHandler} access-key={index} ></lightning-input>
+                    </div>
+                    <!-- <div class="slds-col slds-size_4-of-12" >
+                        <lightning-input type="file" onchange={onFileUpload}  name="UploadFile" label="Upload releiving letter" access-key={index}></lightning-input>
+                        <lightning-layout if:true={fileuploaded}>
+                            <p>{Filename}</p>
+                            <lightning-button-icon icon-name="utility:delete" onclick={removeAttachment}></lightning-button-icon>
+                        </lightning-layout>  
+                    </div> -->
+                </div>
+        </lightning-card>
+        <lightning-card title="Previous employer details">
+            <div class="slds-grid slds-wrap" >
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input class="slds-var-m-around_small" name= "Name" label= "Name" type="text" onchange={changeHandler}  access-key={index} id={index}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input class="slds-var-m-around_small" name="Employer Designation" label="Employer Designation" type="text" onchange={changeHandler}  access-key={index} id={index}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input class="slds-var-m-around_small" name="Email" label="Email" type="text" onchange={changeHandler} access-key={index} id={index}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input class="slds-var-m-around_small" name="Phone" label="Phone" type="number" onchange={changeHandler} access-key={index} id={index}></lightning-input>
+            </div>
+            </div>
+        </lightning-card>
+    </lightning-layout>
+    <lightning-button-icon icon-name="utility:new" onclick={addForm} access-key={index} id={index}></lightning-button-icon>
+    <lightning-button-icon icon-name="utility:delete" onclick={removeForm} disabled={isDisabled} access-key={index} id={index} ></lightning-button-icon>
+    <lightning-card title="Upload document">
+        <div class="slds-col slds-size_4-of-12" >
+            <lightning-input type="file" onchange={onFileUpload}  name="UploadFile" label="Upload releiving letter of the most recent company" access-key={index}></lightning-input>
+            <lightning-layout if:true={fileuploaded}>
+                <p>{Filename}</p>
+                <lightning-button-icon icon-name="utility:delete" onclick={removeAttachment}></lightning-button-icon>
+            </lightning-layout>  
+        </div>
+    </lightning-card>
+
+
+
+
+    <!-- <lightning-button-icon icon-name="utility:new" onclick={addForm} access-key={index} id={index}></lightning-button-icon>
+    <lightning-button-icon icon-name="utility:delete" onclick={removeForm} disabled={isDisabled} access-key={index} id={index} ></lightning-button-icon> -->
+    
+    <lightning-layout>
+        <lightning-layout-item flexibility="grow">
+            <lightning-button label="Previous" icon-name="utility:chevronleft" variant="brand" onclick={navigateToPreviousPage}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="grow">
+            <lightning-button variant="brand" label="Save" class="slds-var-m-around_large" onclick={submitHandler} icon-position="centre" disabled={saveDisabled}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item>
+            <lightning-button label="Preview" variant="brand" icon-name="utility:chevronright"  icon-position="right" onclick={navigateToNextPage} disabled={previewDisabled}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

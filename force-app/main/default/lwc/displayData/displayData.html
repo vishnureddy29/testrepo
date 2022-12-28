@@ -1,0 +1,19 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_medium">
+        <h3 class="slds-text-heading_medium"><lightning-icon icon-name="custom:custom84" size="small"></lightning-icon> <strong style="color:#270086; font-size:13px; margin-right:5px;"> Employee Details</strong></h3>
+        <br/><br/>
+        <template if:true={conlist.data}>
+          <div class="abc">  <lightning-datatable key-field="Id" 
+            data={conlist.data} 
+            columns={columns} 
+            onsave={saveHandleAction}
+            draft-values={fldsItemValues} 
+            hide-checkbox-column 
+            show-row-number-column>
+           </lightning-datatable>
+        </div>
+        </template>
+    </div>
+    </lightning-card>
+    </template>

@@ -1,0 +1,13 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+            <lightning-input label='Institute_Name' name='Institute_Name' type="text" onchange={onChange} required></lightning-input>
+        </div>
+        <div class="slds-col slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium slds-size_6-of-12">
+            <lightning-input label='Board Name' name='Board Name' type="text" onchange={onChange}></lightning-input>
+        </div>
+        <lightning-input type="file" label="MarksCard" onchange={openfileUpload}>
+        </lightning-input>
+    <lightning-button variant="brand" label="submit" title="submit" onclick={handleClick}></lightning-button>
+    </div>
+</template>

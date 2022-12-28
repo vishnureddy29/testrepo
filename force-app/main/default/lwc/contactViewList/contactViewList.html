@@ -1,0 +1,69 @@
+<template >
+    <lightning-card title="Preview">  
+            
+      
+        <template for:each={contacts.data} for:item="conItem">
+            <ul key={conItem.id}>
+                <li>
+
+                  
+                        <div class="slds-grid slds-wrap"  >
+                          <div class="slds-col slds-size_4-of-12" >
+                          <lightning-input type="text" label="FirstName" onchange={FirstNameChange} value={conItem.FirstName} disabled={disabled} ></lightning-input>
+                         </div>
+                          <div class="slds-col slds-size_4-of-12">
+                        <lightning-input type="string" label="LastName" required  onchange={LastNameChange} value={conItem.LastName}  disabled={disabled}></lightning-input>
+                       </div>
+                       <div class="slds-col slds-size_4-of-12">
+                        <lightning-input type="email" label="Email" required onchange={EmailChange} value={conItem.Email}  disabled={disabled}></lightning-input>
+                      </div>
+                      <div class="slds-col slds-size_4-of-12">
+                        <lightning-combobox class="slds-var-m-around_small"
+                            name="Gender"
+                            label="Gender"
+                           
+                            placeholder="Select"
+                            options={genderOptions}
+                            onchange={handleValueGenderChange} value={conItem.Gender__c}  disabled={disabled}></lightning-combobox>
+                        
+                      </div>
+                       
+                       <div class="slds-col slds-size_4-of-12">
+                      <lightning-input type="date" label="Birthdate"  onchange={Birthchange} value={conItem.Birthdate}  disabled={disabled}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_4-of-12">
+                          <lightning-input type="number" label="Phone" onchange={PhoneChange} value={conItem.Phone}  disabled={disabled}></lightning-input>
+                          </div>
+                           <div class="slds-col slds-size_4-of-12">
+                            <lightning-input type="text" label="FatherName" onchange={FatherNameChange} value={conItem.FatherName__c}  disabled={disabled}></lightning-input>
+                              </div>
+                          <div class="slds-col slds-size_4-of-12">
+                            <lightning-input type="text" label="MotherName" onchange={MotherNameChange} value={conItem.MotherName__c}  disabled={disabled}></lightning-input>
+                              </div>  
+                                <div class="slds-col slds-size_4-of-12"> 
+                                <lightning-input type="string" label="City"  onchange={AddressChange} value={conItem.MailingCity}  disabled={disabled}></lightning-input>
+                                  </div> 
+                                    <div class="slds-col slds-size_4-of-12">
+                                    <lightning-input type="string" label="Country"  onchange={CountryChange} value={conItem.MailingCountry}  disabled={disabled}></lightning-input>
+                                      </div>
+                                      <div class="slds-col slds-size_4-of-12">
+                                        <lightning-input type="string" label="State"  onchange={stateChange} value={conItem.MailingState}  disabled={disabled}></lightning-input>
+                                          </div>
+                                          <div class="slds-col slds-size_4-of-12">
+                                            <lightning-input type="string" label="PostalCode"  onchange={zipChange} value={conItem.MailingPostalCode}  disabled={disabled}></lightning-input>
+                                               </div> 
+                    
+                        </div>
+                      
+                </li>
+                <lightning-button label="Edit" size="small" variant="neutral" onclick={handleAccounttEdit}  value={conItem.id} icon-name="utility:edit" icon-position="right" class="EditButton"></lightning-button>
+                <lightning-button label="Submit" size="small" variant="neutral" onclick={Submit}  value={conItem.Id} icon-name="utility:save" icon-position="right" class="saveButton" ></lightning-button>
+                         
+              </ul>
+        </template>
+               
+        <!-- <lightning-button label="Preview" variant="brand" onclick={preview}></lightning-button> -->
+        
+   
+    </lightning-card>
+</template>

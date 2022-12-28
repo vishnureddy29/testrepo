@@ -1,0 +1,74 @@
+<template>  
+  <lightning-card  title="Personal details.">
+  <div class="slds-grid slds-wrap" >
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="text" label="FirstName" onchange={FirstNameChange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="string" label="LastName" required  onchange={LastNameChange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="email" label="Email" required onchange={EmailChange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-combobox class="slds-var-m-around_small"
+          name="Gender"
+          label="Gender"
+          value={value}
+          placeholder="Select"
+          options={genderOptions}
+          onchange={handleValueGenderChange}> 
+      </lightning-combobox> 
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="date" label="Birthdate"  onchange={Birthchange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="number" label="Phone" onchange={PhoneChange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="text" label="FatherName" onchange={FatherNameChange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="text" label="MotherName" onchange={MotherNameChange}></lightning-input>
+    </div>  
+    <div class="slds-col slds-size_4-of-12"> 
+      <lightning-input type="string" label="City"  onchange={AddressChange}></lightning-input>
+    </div> 
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="string" label="Country"  onchange={CountryChange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="string" label="State"  onchange={stateChange}></lightning-input>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <lightning-input type="string" label="PostalCode"  onchange={zipChange}></lightning-input> 
+    </div>    
+  </div>
+  <lightning-button variant="brand" label="Save" aria-required="please fill the above field" onclick={saveContact}></lightning-button>
+  </lightning-card>
+
+  <template if:true={DetailsSaved}>
+  <lightning-card>
+    <lightning-file-upload
+            label="Upload Photo"
+            name="UploadFile"
+            record-id={relatedRecordId}
+            onuploadfinished={handlePhotoUploadFinished}
+            multiple
+            file-field-name="Guest_Record_fileupload__c"
+            file-field-value={relatedRecordId}>
+    </lightning-file-upload>
+
+    <lightning-file-upload
+        label="Upload Signature"
+        name="UploadFile"
+        record-id={relatedRecordId}
+        onuploadfinished={handleSignatureUploadFinished}
+        multiple
+        file-field-name="Guest_Record_fileupload__c"
+        file-field-value={relatedRecordId}>
+    </lightning-file-upload>
+  </lightning-card>
+</template>
+</template>
